@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Login{% endblock %}
+{% block nav %}{% endblock %}
+{% block footer %}{% endblock %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/signin.css' %}">
+        <form method="post" action="" class="form-signin">
+            {% csrf_token %}
+            <table>
+				<h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+                <p>            
+		        	<label for="username" class="sr-only">Username</label>
+                    <input type="text" id="username" class="form-control" name="username" placeholder="Username" required autofocus>
+                </p>
+				<p>
+                    <label for="password" class="sr-only">Password</label>
+                    <input type="password" id="password" class="form-control" name="password" placeholder="Password" required>
+                </p>
+	        	<div class="checkbox mb-3">
+                    <label>
+                        <input type="checkbox" value="remember-me"> Remember me
+                    </label>
+                </div>
+				<tr><div class="register"><a class="text-muted" href="/register">for registration click here</a></div></tr>
+                <tr>
+                    <td><input type="hidden" name="next" value="{{ next|default:'' }}"></td>
+                    <td><input type="submit" value="Submit"></td>
+                </tr>   
+                				
+            </table>
+         
+			<div class="footer">
+                <div class="section-inner clearfix">
+                    <hr>
+                    <p>&copy; SoundParties</p>
+                </div>
+            </div>
+        </form>
+
+{% endblock %}
